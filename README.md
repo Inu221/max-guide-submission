@@ -61,6 +61,9 @@ docker compose up --build
 Подробности и ожидаемые ответы приведены в
 [`docs/API_VERIFICATION.md`](docs/API_VERIFICATION.md).
 
+Продуктовое позиционирование, сценарий, метрики пилота и масштабирование
+зафиксированы в [`docs/PRODUCT_STORY.md`](docs/PRODUCT_STORY.md).
+
 ## Основной сценарий проверки
 
 1. Открыть чат-бота MAX и перейти в мини-приложение.
