@@ -52,6 +52,15 @@ docker compose up --build
 
 Полный сброс тестовых данных: `docker compose down --volumes`.
 
+Проверка основного набора API:
+
+```bash
+./scripts/verify-api.sh
+```
+
+Подробности и ожидаемые ответы приведены в
+[`docs/API_VERIFICATION.md`](docs/API_VERIFICATION.md).
+
 ## Основной сценарий проверки
 
 1. Открыть чат-бота MAX и перейти в мини-приложение.
@@ -113,4 +122,3 @@ Nginx-контейнеры проксируют запросы в контейн
 [`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md). Для API
 потребуются экспорт OpenAPI 3.x, тестовые данные и `DATA-API.yaml` по
 официальной схеме организаторов.
-
