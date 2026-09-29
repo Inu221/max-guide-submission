@@ -2,9 +2,10 @@
 
 | Компонент | Ветка | Текущий commit | Назначение |
 |---|---|---|---|
-| Backend | `feat/hackathon-submission-runtime` | `9054c82f4b18a60190b5858f7556d3fd17949405` | API, seed и production runtime |
-| Frontend | `feat/hackathon-production-container` | `7ba7cb93038090f3acdb30fa91fbd7734f4f0397` | пользовательское мини-приложение |
-| Admin | `feat/hackathon-production-container` | `22f7c5dbbaa7f605476a7d1c2a4fb349e17b2031` | административный интерфейс |
+| Backend | `develop` | `5b8da6d331463459186f940957a31bad07fa8507` | API, seed и production runtime; feature PR влит |
+| Frontend | `develop` | `43f3180c460a06f36f663dcc787b80f269639e3b` | пользовательское мини-приложение; feature PR влит |
+| Admin | `main` | `0f5545faf13495aa0a15fb33d95fba54521244ef` | административный интерфейс; опубликованная release-ветка |
 
-Перед сдачей здесь должны быть полные итоговые commit hash после проверки,
-merge и публикации веток.
+Backend и frontend пока зафиксированы на `develop`: после общей проверки и
+переноса в production-ветки их SHA нужно заменить на итоговые `master` и
+`main`. Затем необходимо повторно проверить Compose и публичный стенд.
