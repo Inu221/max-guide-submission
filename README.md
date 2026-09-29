@@ -144,6 +144,7 @@ Nginx-контейнеры проксируют запросы в контейн
 ## Материалы для сдачи
 
 Состояние подготовки отражено в
-[`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md). Для API
+[`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md). Полный план передачи и оставшихся
+задач находится в [`docs/HANDOFF.md`](docs/HANDOFF.md). Для API
 потребуются экспорт OpenAPI 3.x, тестовые данные и `DATA-API.yaml` по
 официальной схеме организаторов.

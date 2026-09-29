@@ -1,11 +1,11 @@
 # Зафиксированные версии компонентов
 
-| Компонент | Ветка | Текущий commit | Назначение |
+| Компонент | Production-ветка | Commit | Назначение |
 |---|---|---|---|
-| Backend | `develop` | `5b8da6d331463459186f940957a31bad07fa8507` | API, seed и production runtime; feature PR влит |
-| Frontend | `develop` | `43f3180c460a06f36f663dcc787b80f269639e3b` | пользовательское мини-приложение; feature PR влит |
-| Admin | `main` | `0f5545faf13495aa0a15fb33d95fba54521244ef` | административный интерфейс; опубликованная release-ветка |
+| Backend | `master` | `a0f6bad30dac249ad644bc17fe9eee44c016a438` | API, seed, MAX Bot API и production runtime |
+| Frontend | `main` | `1762260bf0b9b05eae00b9944ee17d08089e0911` | пользовательское мини-приложение |
+| Admin | `main` | `2e42a216874cefedf5ba13db601e23c058f92a22` | административный интерфейс |
+| Submission | `main` | `f03aa05c6277f29688b105505e1c7ea640396cb6` | Compose, документация и материалы сдачи |
 
-Backend и frontend пока зафиксированы на `develop`: после общей проверки и
-переноса в production-ветки их SHA нужно заменить на итоговые `master` и
-`main`. Затем необходимо повторно проверить Compose и публичный стенд.
+Это зафиксированная база после production-merge. После любых финальных исправлений
+таблицу нужно обновить новыми SHA и повторно выполнить smoke-test.
