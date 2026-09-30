@@ -2,16 +2,16 @@
 
 ## Автоматическая smoke-проверка
 
-После запуска `docker compose up -d` выполните:
+После запуска продукта выполните:
 
 ```bash
 ./scripts/verify-api.sh
 ```
 
-Для проверки публичного API укажите другой базовый HTTPS-адрес:
+Для проверки публичного production API укажите HTTPS-адрес:
 
 ```bash
-API_BASE_URL=https://api.example.com/api ./scripts/verify-api.sh
+API_BASE_URL=https://max-guide.legacy-team.tech/api ./scripts/verify-api.sh
 ```
 
 Скрипт проверяет обязательную цепочку:
@@ -24,19 +24,31 @@ API_BASE_URL=https://api.example.com/api ./scripts/verify-api.sh
 6. регистрацию временного тестового пользователя;
 7. повторный вход этого пользователя.
 
-Для регистрации каждый запуск создаёт уникальный адрес в домене
-`example.test`. Данные предназначены только для технической проверки.
+Для регистрации каждый запуск создает уникальный адрес в домене `example.test`. Эти данные предназначены только для технической проверки.
 
 ## Ожидаемые результаты
 
 | Проверка | Метод и путь | Код | Обязательный результат |
 |---|---|---:|---|
-| Health | `GET /api/health` | 200 | База данных имеет статус `up` |
-| Места | `GET /api/places` | 200 | Не менее 50 записей, есть `photoUrls` |
-| Лента | `GET /api/feed?limit=5` | 200 | Непустой массив `items` |
-| Поиск | `GET /api/search?q=парк&limit=5` | 200 | Непустой массив `items` |
-| Маршрут | `POST /api/routes/classic` | 201 | Непустой массив `waypoints` |
-| Регистрация | `POST /api/auth/register/email` | 201 | Возвращён `token` |
-| Вход | `POST /api/auth/login/email` | 200 | Возвращён `token` |
+| Health | `GET /api/health` | 200 | база данных имеет статус `up` |
+| Места | `GET /api/places` | 200 | не менее 50 записей, присутствуют `photoUrls` |
+| Лента | `GET /api/feed?limit=5` | 200 | непустой массив `items` |
+| Поиск | `GET /api/search?q=парк&limit=5` | 200 | непустой массив `items` |
+| Маршрут | `POST /api/routes/classic` | 201 | непустой массив `waypoints` |
+| Регистрация | `POST /api/auth/register/email` | 201 | возвращен `token` |
+| Вход | `POST /api/auth/login/email` | 200 | возвращен `token` |
 
 Полный контракт находится в корневом файле `openapi.json`.
+
+## Production endpoints
+
+- API: <https://max-guide.legacy-team.tech/api>
+- Swagger: <https://max-guide.legacy-team.tech/api/docs>
+
+По состоянию на **30 сентября 2026 года** smoke-test был успешно пройден против production API по цепочке: health, seed places, feed, search, classic route, registration и login.
+
+## Примечание о тестовом пользователе
+
+Для основного сценария отдельная опубликованная учетная запись не обязательна: reviewer может зарегистрировать временного пользователя через mini app либо через `POST /api/auth/register/email`.
+
+Рабочие пароли, токены и MAX-секреты в Git не публикуются.

@@ -1,0 +1,94 @@
+version: '1.0'
+solution: Neparadny Stavropol
+base_url: https://max-guide.legacy-team.tech/api
+openapi: openapi.json
+test_data:
+  source: max-guide-backend/src/scripts/seed-catalog/catalog.json
+  setup: Run the seed service from compose.yaml with a fresh Docker volume
+  account: Create one temporary reviewer account with register_email (role user); retain the returned token in memory and do not commit credentials
+checks:
+  - id: health
+    method: GET
+    path: /health
+    role: anonymous
+    parameters: {}
+    expected:
+      status_codes: [200]
+      content_type: application/json
+      required_fields: [status, info, error, details]
+      assertions: 'status == ok; info.database.status == up'
+  - id: places
+    method: GET
+    path: /places
+    role: anonymous
+    parameters: {}
+    expected:
+      status_codes: [200]
+      content_type: application/json
+      assertions: 'array length >= 50; at least one item has a non-empty photoUrls array'
+  - id: feed
+    method: GET
+    path: /feed
+    role: anonymous
+    parameters:
+      query: {limit: 5}
+    expected:
+      status_codes: [200]
+      content_type: application/json
+      required_fields: [items]
+      assertions: 'items is a non-empty array'
+  - id: search
+    method: GET
+    path: /search
+    role: anonymous
+    parameters:
+      query: {q: парк, limit: 5}
+    expected:
+      status_codes: [200]
+      content_type: application/json
+      required_fields: [items]
+      assertions: 'items is a non-empty array'
+  - id: classic_route
+    method: POST
+    path: /routes/classic
+    role: anonymous
+    parameters:
+      headers: {Content-Type: application/json}
+      body: {radius: 5, lat: 45.0428, lng: 41.9734}
+    expected:
+      status_codes: [201]
+      content_type: application/json
+      required_fields: [waypoints]
+      assertions: 'waypoints is a non-empty array of Stavropol route points'
+  - id: register_email
+    method: POST
+    path: /auth/register/email
+    role: anonymous
+    parameters:
+      headers: {Content-Type: application/json}
+      body: {email: 'review-<unique-timestamp>@example.test', password: '<unique-test-password-12-chars-or-more>', name: 'Hackathon Reviewer'}
+    expected:
+      status_codes: [201]
+      content_type: application/json
+      required_fields: [token, user]
+  - id: login_email
+    method: POST
+    path: /auth/login/email
+    role: anonymous
+    parameters:
+      headers: {Content-Type: application/json}
+      body: {email: '<register_email.email>', password: '<register_email.password>'}
+    expected:
+      status_codes: [200]
+      content_type: application/json
+      required_fields: [token, user]
+  - id: profile
+    method: GET
+    path: /users/me
+    role: user
+    parameters:
+      headers: {Authorization: 'Bearer <register_email.token>'}
+    expected:
+      status_codes: [200]
+      content_type: application/json
+      required_fields: [id, name]
