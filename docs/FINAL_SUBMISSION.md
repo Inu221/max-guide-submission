@@ -12,7 +12,7 @@
 Зафиксированный superproject:
 
 ```text
-1c1c02ee8695c6e35ea3d42c7269c7c48386b8fd
+11e7bbb1f64ec5e383fc26fa4d45093a6c1488a7
 ```
 
 Зафиксированные submodule:
@@ -20,7 +20,7 @@
 | Компонент | Ветка | Commit |
 |---|---|---|
 | Backend | `master` | `ddb8f9fb9519ffc1f81a0372704f4b68fe145c9f` |
-| Frontend | `main` | `c45d0a6fb7d15c08a681ce59e99b5178f2380e03` |
+| Frontend | `main` | `c92b80636fc384dc0815e6936df85c6b4a15bbe5` |
 | Admin | `main` | `ffdf036c3d339c1303fae783cf5bcaaeb52a687f` |
 
 Подробности: [`COMPONENT_VERSIONS.md`](COMPONENT_VERSIONS.md).
