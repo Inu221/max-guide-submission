@@ -12,7 +12,7 @@
 Зафиксированный superproject:
 
 ```text
-11e7bbb1f64ec5e383fc26fa4d45093a6c1488a7
+dc8262cde5a101b237146c973b18a7e7e1939d3e
 ```
 
 Зафиксированные submodule:
@@ -20,7 +20,7 @@
 | Компонент | Ветка | Commit |
 |---|---|---|
 | Backend | `master` | `ddb8f9fb9519ffc1f81a0372704f4b68fe145c9f` |
-| Frontend | `main` | `c92b80636fc384dc0815e6936df85c6b4a15bbe5` |
+| Frontend | `main` | `8fc47ab1b10dcea288160db83b44a5b9e6a3ea19` |
 | Admin | `main` | `ffdf036c3d339c1303fae783cf5bcaaeb52a687f` |
 
 Подробности: [`COMPONENT_VERSIONS.md`](COMPONENT_VERSIONS.md).
@@ -154,3 +154,13 @@ API_BASE_URL=https://max-guide.legacy-team.tech/api ./scripts/verify-api.sh
 Рабочие токены, пароли, API-ключи и MAX-секреты не публикуются в Git.
 
 Административный доступ не входит в основной пользовательский сценарий и передается отдельно только при необходимости проверки admin-панели.
+
+## Финальная сверка 30 сентября 2026
+
+- Презентация обновлена реальными мобильными скриншотами на слайде 5.
+- На первом слайде указаны commit исходного продукта и SHA-256 именно резервного архива, не commit submission-репозитория.
+- SHA-256 архива: `7ad7a2a35450bc439e819230508548ae0603976c34f92b2efdfbff5c8f8fb03d`.
+- Контрольные суммы PPTX и PDF: `presentation/SHA256SUMS.txt`.
+- Production API `/api/health` ответил `status: ok` (database, storage, redis).
+- Конфигурация production/local Docker Compose из архивного снимка проходит `config --quiet`. Полная повторная сборка контейнеров в эту финальную сверку не входила.
+- Dev Compose требует предварительно создать component `.env` по примерам, как описано в README исходного продукта. Для проверки жюри используйте `node tools/local.cjs up`.

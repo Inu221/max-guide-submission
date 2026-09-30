@@ -15,9 +15,9 @@
 
 ## Материалы презентации
 
-- [презентация PowerPoint](presentation/max-guide-hackathon/max-guide-hackathon.pptx);
-- [презентация PDF](presentation/max-guide-hackathon/export/max-guide-hackathon.pdf);
-- [текст выступления](presentation/max-guide-hackathon/speech.md).
+- [презентация PowerPoint](presentation/max-guide-hackathon.pptx);
+- [презентация PDF](presentation/export/max-guide-hackathon.pdf);
+- [текст выступления](presentation/speech.md).
 
 ## Финальный архив исходного кода
 
