@@ -14,10 +14,8 @@ Superproject `max-guide` фиксирует конкретные SHA трех Gi
 
 ```text
 max-guide
-commit a2c989fbdc6d993129cc56bc080bd0f0a5370aeb
+commit fb686f513fd7f4579e63c5a8434471de12b930a8
 ```
-
-Именно этот commit superproject определяет, какие версии submodule относятся к зафиксированному снимку.
 
 ## Что входит в архив
 
