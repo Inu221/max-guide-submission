@@ -1,2 +1,2 @@
-921868ed0a818a3d7b5d5989505ae020f8e9821e218ef9db80de6f9277c4a9b1  max-guide-hackathon.pptx
-47f68463eae1f0bafda0c91e22cd468915da72120e70345f60837ae9671d5a59  export/max-guide-hackathon.pdf
+4f06a98374a2e06affee080a74b1802d82e6918cfccc9471125043cfe8723de5  max-guide-hackathon.pptx
+b261e0adc24c0a0a62458c44a5e2c76805325ceff6f87965dc5f49093065d6c5  export/max-guide-hackathon.pdf

@@ -4,7 +4,7 @@ base_url: https://max-guide.legacy-team.tech/api
 openapi: openapi.json
 test_data:
   source: max-guide-backend/src/scripts/seed-catalog/catalog.json
-  setup: Run the seed service from compose.yaml with a fresh Docker volume
+  setup: Run `node tools/local.cjs up`; the generated `.env.local` enables `SEED_CATALOG_ON_START=true` for a fresh local volume
   account: Create one temporary reviewer account with register_email (role user); retain the returned token in memory and do not commit credentials
 checks:
   - id: health
