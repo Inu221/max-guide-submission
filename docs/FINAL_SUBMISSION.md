@@ -12,16 +12,16 @@
 Зафиксированный superproject:
 
 ```text
-a2c989fbdc6d993129cc56bc080bd0f0a5370aeb
+1c1c02ee8695c6e35ea3d42c7269c7c48386b8fd
 ```
 
 Зафиксированные submodule:
 
 | Компонент | Ветка | Commit |
 |---|---|---|
-| Backend | `master` | `7696553f3f6a6a58f87addd452e25753a67bfaf2` |
-| Frontend | `main` | `1cc2ff9dfa31b25f3995f3c662634f6169c62fd8` |
-| Admin | `main` | `1811ea9e7025474b90c30a8f61cc8cf96a4c9988` |
+| Backend | `master` | `ddb8f9fb9519ffc1f81a0372704f4b68fe145c9f` |
+| Frontend | `main` | `c45d0a6fb7d15c08a681ce59e99b5178f2380e03` |
+| Admin | `main` | `ffdf036c3d339c1303fae783cf5bcaaeb52a687f` |
 
 Подробности: [`COMPONENT_VERSIONS.md`](COMPONENT_VERSIONS.md).
 
@@ -122,19 +122,20 @@ tar -xzf artifacts/max-guide-final-2026-09-30.tar.gz -C /tmp/max-guide-review
 cd /tmp/max-guide-review/max-guide
 ```
 
-Подготовить окружение и запустить локальный compose:
+Запустить прод-сборку в изолированном локальном compose (`tools/local.cjs`
+создаёт `.env.local` со случайными локальными паролями и поднимает проект
+`max-guide-local`):
 
 ```bash
-cp .env.example .env
-docker compose -f docker-compose.local.yml up --build
+node tools/local.cjs up
 ```
 
 Основные адреса:
 
-- Mini App: <http://localhost:3001>
-- API: <http://localhost:3000/api>
-- Swagger: <http://localhost:3000/api/docs>
-- Admin: <http://localhost:3002>
+- Mini App: <http://localhost:3100>
+- Admin: <http://localhost:3100/admin/>
+- API: <http://localhost:3100/api>
+- Swagger: <http://localhost:3100/api/docs>
 
 Для собственного API приложены `openapi.json` и `DATA-API.yaml`.
 

@@ -2,10 +2,10 @@
 
 ## Автоматическая smoke-проверка
 
-После запуска продукта выполните:
+После локального запуска продукта (см. корневой `README.md`, изолированный проект `max-guide-local`) выполните:
 
 ```bash
-./scripts/verify-api.sh
+API_BASE_URL=http://localhost:3100/api ./scripts/verify-api.sh
 ```
 
 Для проверки публичного production API укажите HTTPS-адрес:

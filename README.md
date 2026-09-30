@@ -60,31 +60,35 @@ max-guide-final-2026-09-30.tar.gz: OK
 mkdir -p /tmp/max-guide-review
 tar -xzf artifacts/max-guide-final-2026-09-30.tar.gz -C /tmp/max-guide-review
 cd /tmp/max-guide-review/max-guide
-cp .env.example .env
-docker compose -f docker-compose.local.yml up --build
+node tools/local.cjs up
 ```
+
+`tools/local.cjs` поднимает прод-сборку в изолированном compose-проекте
+`max-guide-local` на <http://localhost:3100> и при первом запуске создаёт
+`.env.local` со случайными локальными паролями (файл не попадает в Git).
 
 Основные локальные адреса:
 
-- mini app: <http://localhost:3001>;
-- API: <http://localhost:3000/api>;
-- Swagger UI: <http://localhost:3000/api/docs>;
-- OpenAPI JSON: <http://localhost:3000/api/docs-json>;
-- admin: <http://localhost:3002>;
-- health check: <http://localhost:3000/api/health>.
+- mini app: <http://localhost:3100>;
+- admin: <http://localhost:3100/admin/>;
+- API: <http://localhost:3100/api>;
+- Swagger UI: <http://localhost:3100/api/docs>;
+- OpenAPI JSON: <http://localhost:3100/api/docs-json>;
+- health check: <http://localhost:3100/api/health>.
 
-Для карты требуется `REACT_APP_YANDEX_MAPS_KEY` в `.env`. Без валидного ключа карта может быть недоступна, при этом остальные экраны и API остаются проверяемыми.
+Для карты требуется `REACT_APP_YANDEX_MAPS_KEY` в `.env.local`. Без валидного ключа карта может быть недоступна, при этом остальные экраны и API остаются проверяемыми.
 
 Остановка:
 
 ```bash
-docker compose -f docker-compose.local.yml down
+node tools/local.cjs down
 ```
 
 Полный сброс локальных данных:
 
 ```bash
-docker compose -f docker-compose.local.yml down --volumes
+node tools/local.cjs down
+docker volume rm $(docker volume ls -q --filter name=max-guide-local)
 ```
 
 ## Основной сценарий проверки
@@ -121,6 +125,12 @@ Swagger:
 
 ```bash
 API_BASE_URL=https://max-guide.legacy-team.tech/api ./scripts/verify-api.sh
+```
+
+Проверка локально запущенного API (см. раздел выше):
+
+```bash
+API_BASE_URL=http://localhost:3100/api ./scripts/verify-api.sh
 ```
 
 ## Архитектура

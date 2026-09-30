@@ -6,15 +6,15 @@ Superproject `max-guide` фиксирует конкретные SHA трех Gi
 
 | Компонент | Production-ветка | Commit | Назначение |
 |---|---|---|---|
-| Backend | `master` | `7696553f3f6a6a58f87addd452e25753a67bfaf2` | API, seed, MAX Bot API и production runtime |
-| Frontend | `main` | `1cc2ff9dfa31b25f3995f3c662634f6169c62fd8` | пользовательское mini app |
-| Admin | `main` | `1811ea9e7025474b90c30a8f61cc8cf96a4c9988` | административный интерфейс |
+| Backend | `master` | `ddb8f9fb9519ffc1f81a0372704f4b68fe145c9f` | API, seed, MAX Bot API и production runtime |
+| Frontend | `main` | `c45d0a6fb7d15c08a681ce59e99b5178f2380e03` | пользовательское mini app |
+| Admin | `main` | `ffdf036c3d339c1303fae783cf5bcaaeb52a687f` | административный интерфейс |
 
 Основной superproject:
 
 ```text
 max-guide
-commit fb686f513fd7f4579e63c5a8434471de12b930a8
+commit 1c1c02ee8695c6e35ea3d42c7269c7c48386b8fd
 ```
 
 ## Что входит в архив
